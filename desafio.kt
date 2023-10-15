@@ -1,21 +1,49 @@
-// [Template no Kotlin Playground](https://pl.kotl.in/WcteahpyN)
+data class Aluno(val nome : String, val email: String)
 
-enum class Nivel { BASICO, INTERMEDIARIO, DIFICIL }
+val aluno: MutableList<Aluno> = mutableListOf()
+val lista2 : List<Aluno> = aluno
 
-class Usuario
-
-data class ConteudoEducacional(var nome: String, val duracao: Int = 60)
-
-data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>) {
-
-    val inscritos = mutableListOf<Usuario>()
-    
-    fun matricular(usuario: Usuario) {
-        TODO("Utilize o parâmetro $usuario para simular uma matrícula (usar a lista de $inscritos).")
-    }
+fun addAluno(novo_aluno : Aluno)
+{
+    aluno.add(novo_aluno)
 }
+
+fun getItensLista2() : List<Aluno> {
+    return lista2
+}
+
+data class Formacao(var nome_formacao : String, var nivel : String, var conteudo : String)
+
+val formacao : MutableList<Formacao> = mutableListOf()
+val lista3 : List<Formacao> = formacao
+
+fun addFormacao(nova_formacao : Formacao)
+{
+   formacao.add(nova_formacao)
+}
+
+fun getItensLista3() : List<Formacao> {
+    return lista3 
+}
+
 
 fun main() {
-    TODO("Analise as classes modeladas para este domínio de aplicação e pense em formas de evoluí-las.")
-    TODO("Simule alguns cenários de teste. Para isso, crie alguns objetos usando as classes em questão.")
-}
+  
+    val a = Aluno("zezin","zezin@bol")
+    addAluno(a)
+  
+    val b = Aluno("chiquin","chiquin@gmail")
+    addAluno(b)
+    getItensLista2().forEach {                                     
+        i -> println("$i")
+    }
+  
+    val f = Formacao("Java para iniciantes", "basico","conceitos iniciais")
+    addFormacao(f)
+   
+    val g = Formacao ("C","intermediario","estrutura de dados")
+    addFormacao(g)
+    getItensLista3().forEach {                                     
+        i -> println("$i")
+    }
+ }
